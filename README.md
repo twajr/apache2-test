@@ -18,7 +18,21 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^(example.nitc\.)?162.79.27.219.xip\.io$ [NC]
 RewriteRule ^(.*)$ - [L,R=404]
 ```
+Turn logging up pretty high so I can review headers as part of the project. Notice the 'Host' item to log the host header in the access logs. 
+```
+<IfModule log_config_module>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" \"%{Host}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
 
+    <IfModule logio_module>
+      # You need to enable mod_logio.c to use %I and %O
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\ \"%{Host}i\" %I %O" combinedio
+    </IfModule>
+
+    CustomLog "/var/log/apache_access.log" common
+    CustomLog "/var/log/apache_combined_access.log" combinedio
+</IfModule>
+```
 ### Dockerfile
 ```
 FROM httpd:2.4
