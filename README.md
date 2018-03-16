@@ -12,6 +12,12 @@ Apached listens on port 8080 as this project is used as a 'backend' for the varn
 # directive.
 Listen 8080
 ```
+Check for a specific host: header in the request, and fail with a 404 if it's not there.
+```
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^(example.nitc\.)?162.79.27.219.xip\.io$ [NC]
+RewriteRule ^(.*)$ - [L,R=404]
+```
 
 ### Dockerfile
 ```
