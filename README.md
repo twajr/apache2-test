@@ -30,7 +30,8 @@ Turn logging up pretty high so I can review headers as part of the project. Noti
     </IfModule>
 
     CustomLog "/var/log/apache_access.log" common
-    CustomLog "/var/log/apache_combined_access.log" combinedio
+    CustomLog "/var/log/apache_combined_access.log" combined
+    CustomLog "/var/log/apache_combinedio_access.log" combinedio
 </IfModule>
 ```
 ### Dockerfile
