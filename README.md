@@ -39,4 +39,5 @@ Turn logging up pretty high so I can review headers as part of the project. Noti
 FROM httpd:2.4
 COPY ./index.html /usr/local/apache2/htdocs/
 COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
+EXPOSE 8080
 ```
