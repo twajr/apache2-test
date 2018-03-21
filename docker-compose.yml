@@ -1,0 +1,10 @@
+version: '2'
+services:
+  apache2:
+    image: twabscs/apache2-test
+    volumes:
+    - /app/local/apache2-test:/var/lib/apache2    
+    environment:
+      PORT: '8080'
+    labels:
+      io.rancher.container.pull_image: always
