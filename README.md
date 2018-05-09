@@ -2,6 +2,12 @@
 
 This project demonstrates using the basic docker httpd image to create test scenarios. Basic HTML pages as well as the httpd.conf files are passed via the Dockerfile. This creates a simple docker image for testing various apache2 configurations. 
 
+### Dump Apache Configs
+```
+apachectl -S  (settings)
+apachectl -V  (compiled with)
+apachectl -M  (modules)
+```
 ### Apache Config Items
 
 Apached listens on port 8080 as this project is used as a 'backend' for the varnish-cache solution, which is also integrated as a docker instance. 
